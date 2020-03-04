@@ -21,7 +21,7 @@ const databaseConfig: DatabaseConfigContract & { orm: Partial<OrmConfigContract>
   | file.
   |
   */
-  connection: Env.get('DB_CONNECTION', 'mysql2') as string,
+  connection: Env.get('DB_CONNECTION', 'mysql') as string,
 
   connections: {
     /*
@@ -56,13 +56,13 @@ const databaseConfig: DatabaseConfigContract & { orm: Partial<OrmConfigContract>
     | npm i mysql
     |
     */
-    mysql2: {
-      client: 'mysql',
+    mysql: {
+      client: 'mysql2',
       connection: {
         host: Env.get('DB_HOST', '127.0.0.1') as string,
         port: Number(Env.get('DB_PORT', 3306)),
         user: Env.get('DB_USER', 'root') as string,
-        password: Env.get('DB_PASSWORD', 'planoaula') as string,
+        password: Env.get('DB_PASSWORD', '') as string,
         database: Env.get('DB_NAME', 'db_plano_aula') as string,
       },
       pool: {
